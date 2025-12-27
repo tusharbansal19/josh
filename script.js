@@ -182,13 +182,13 @@ if (requestDishBtn) {
         const photoInput = modal.querySelector('#dishPhoto');
         const fileNameDisplay = modal.querySelector('#fileName');
 
-        // Photo upload handler
+
         photoInput.addEventListener('change', function (e) {
             const file = e.target.files[0];
             const photoError = modal.querySelector('#photoError');
 
             if (file) {
-                const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+                const maxSize = 2 * 1024 * 1024;
 
                 if (file.size > maxSize) {
                     photoError.textContent = 'File size exceeds 2MB. Please choose a smaller file.';
@@ -201,7 +201,7 @@ if (requestDishBtn) {
             }
         });
 
-        // Clear error on input
+
         dishNameInput.addEventListener('input', function () {
             modal.querySelector('#dishNameError').textContent = '';
             dishNameInput.classList.remove('input-error');
@@ -225,13 +225,13 @@ if (requestDishBtn) {
             const dishNameError = modal.querySelector('#dishNameError');
             const descriptionError = modal.querySelector('#descriptionError');
 
-            // Clear previous errors
+
             dishNameError.textContent = '';
             descriptionError.textContent = '';
             dishNameInput.classList.remove('input-error');
             dishDescriptionInput.classList.remove('input-error');
 
-            // Validate dish name
+
             if (!dishNameInput.value.trim()) {
                 dishNameError.textContent = 'Dish name is required';
                 dishNameInput.classList.add('input-error');
@@ -242,7 +242,7 @@ if (requestDishBtn) {
                 isValid = false;
             }
 
-            // Validate description
+
             if (!dishDescriptionInput.value.trim()) {
                 descriptionError.textContent = 'Description is required';
                 dishDescriptionInput.classList.add('input-error');
@@ -260,14 +260,14 @@ if (requestDishBtn) {
 
         submitBtn.addEventListener('click', function () {
             if (validateForm()) {
-                // Form is valid, you can submit the data here
+
                 console.log('Form submitted:', {
                     dishName: dishNameInput.value,
                     description: dishDescriptionInput.value,
                     photo: photoInput.files[0] || null
                 });
 
-                // Show success message or close modal
+
                 alert('Request submitted successfully!');
                 closeModal();
             }

@@ -101,7 +101,7 @@ nav {
 
 .hero {
     width: 100%;
-    height: 550px;
+    height: 680px;
     background-color: #1AC073;
     display: flex;
     align-items: center;
@@ -112,7 +112,7 @@ nav {
 
 .hero-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 60px;
     width: 100%;
@@ -355,11 +355,15 @@ nav {
     padding: 60px 0 80px 0;
 }
 
-/* Swiper Container - Show exactly 3 cards */
-.popularSwiper {
-    width: 85%;
-    max-width: 1000px;
+.popular-slider-wrapper {
+    position: relative;
+    max-width: 1100px;
     margin: 0 auto 40px auto;
+    padding: 0 10px;
+}
+
+.popularSwiper {
+    width: 100%;
     padding: 60px 0;
     position: relative;
     overflow: hidden;
@@ -371,7 +375,6 @@ nav {
     transition: all 0.4s ease;
 }
 
-/* Carousel Card - ALL VISIBLE (No Fade) */
 .carousel-card {
     background-color: #FFFFFF;
     border-radius: 16px;
@@ -379,29 +382,24 @@ nav {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: 100%;
     max-width: 280px;
-
-    /* All cards visible - no opacity reduction */
     opacity: 1;
     transform: scale(0.92);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Active Center Card - Slightly Larger with Light Shadow */
 .swiper-slide-active .carousel-card {
     opacity: 1;
     transform: scale(1.08);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Hover effect on active card */
 .swiper-slide-active .carousel-card:hover {
     transform: scale(1.1);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* TRIANGLE NAVIGATION BUTTONS - Positioned Outside */
-.popularSwiper .swiper-button-next,
-.popularSwiper .swiper-button-prev {
+.popular-slider-wrapper .swiper-button-next,
+.popular-slider-wrapper .swiper-button-prev {
     width: 50px;
     height: 50px;
     background: #FFFFFF;
@@ -410,19 +408,28 @@ nav {
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     top: 50%;
-    /* right: %; */
     margin-top: 0;
+    position: absolute;
+    z-index: 10;
 }
 
-/* Hide default arrows */
-.popularSwiper .swiper-button-next::after,
-.popularSwiper .swiper-button-prev::after {
+.popular-slider-wrapper .swiper-button-prev {
+    left: -25px;
+
+}
+
+.popular-slider-wrapper .swiper-button-next {
+    right: -25px;
+
+}
+
+.popular-slider-wrapper .swiper-button-next::after,
+.popular-slider-wrapper .swiper-button-prev::after {
     content: '';
 }
 
-/* Create Triangle Arrows */
-.popularSwiper .swiper-button-next::before,
-.popularSwiper .swiper-button-prev::before {
+.popular-slider-wrapper .swiper-button-next::before,
+.popular-slider-wrapper .swiper-button-prev::before {
     content: '';
     position: absolute;
     width: 0;
@@ -431,8 +438,7 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* Right Triangle (Next Button) */
-.popularSwiper .swiper-button-next::before {
+.popular-slider-wrapper .swiper-button-next::before {
     border-width: 8px 0 8px 12px;
     border-color: transparent transparent transparent #1AC073;
     left: 52%;
@@ -440,8 +446,7 @@ nav {
     transform: translate(-50%, -50%);
 }
 
-/* Left Triangle (Prev Button) */
-.popularSwiper .swiper-button-prev::before {
+.popular-slider-wrapper .swiper-button-prev::before {
     border-width: 8px 12px 8px 0;
     border-color: transparent #1AC073 transparent transparent;
     left: 48%;
@@ -449,27 +454,26 @@ nav {
     transform: translate(-50%, -50%);
 }
 
-/* HOVER & ACTIVE STATE - Green BG with White Triangle */
-.popularSwiper .swiper-button-next:hover,
-.popularSwiper .swiper-button-prev:hover,
-.popularSwiper .swiper-button-next:active,
-.popularSwiper .swiper-button-prev:active {
+.popular-slider-wrapper .swiper-button-next:hover,
+.popular-slider-wrapper .swiper-button-prev:hover,
+.popular-slider-wrapper .swiper-button-next:active,
+.popular-slider-wrapper .swiper-button-prev:active {
     background: #1AC073;
     border-color: #FFFFFF;
     transform: scale(1.05);
 }
 
-.popularSwiper .swiper-button-next:hover::before,
-.popularSwiper .swiper-button-next:active::before {
+.popular-slider-wrapper .swiper-button-next:hover::before,
+.popular-slider-wrapper .swiper-button-next:active::before {
     border-color: transparent transparent transparent #FFFFFF;
 }
 
-.popularSwiper .swiper-button-prev:hover::before,
-.popularSwiper .swiper-button-prev:active::before {
+.popular-slider-wrapper .swiper-button-prev:hover::before,
+.popular-slider-wrapper .swiper-button-prev:active::before {
     border-color: transparent #FFFFFF transparent transparent;
 }
 
-.popularSwiper .swiper-button-disabled {
+.popular-slider-wrapper .swiper-button-disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
@@ -913,12 +917,12 @@ footer {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
-/* Form Group Styles */
+
 .form-group {
     margin-bottom: 16px;
 }
 
-/* Error Message Styles */
+
 .error-message {
     display: block;
     color: #dc3545;
@@ -928,7 +932,7 @@ footer {
     font-weight: 500;
 }
 
-/* Input Error State */
+
 .input-error {
     border-color: #dc3545 !important;
     background-color: #fff5f5;
@@ -939,7 +943,7 @@ footer {
     box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
 }
 
-/* Photo Upload Styles */
+
 .photo-upload-label {
     display: block;
     width: 100%;
@@ -979,7 +983,7 @@ footer {
     font-style: italic;
 }
 
-/* Modal Input Adjustments */
+
 .modal-input,
 .modal-textarea {
     margin-bottom: 0;
