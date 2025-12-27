@@ -136,39 +136,39 @@ if (requestDishBtn) {
         const modal = document.createElement('div');
         modal.className = 'modal-overlay';
         modal.innerHTML = `
-            <div class="modal-content">
-                <h2 class="modal-title">Request a Dish</h2>
-                
-                <div class="form-group">
-                    <input type="text" class="modal-input" id="dishName" placeholder="Dish Name *" />
-                    <span class="error-message" id="dishNameError"></span>
-                </div>
-                
-                <div class="form-group">
-                    <textarea class="modal-textarea" id="dishDescription" placeholder="Description *" rows="4"></textarea>
-                    <span class="error-message" id="descriptionError"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label class="photo-upload-label">
-                        <input type="file" class="photo-input" id="dishPhoto" accept="image/*" />
-                        <span class="upload-text">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M10 4V16M4 10H16" stroke="#1AC073" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                            Upload Photo (Optional, Max 2MB)
-                        </span>
-                    </label>
-                    <span class="file-name" id="fileName"></span>
-                    <span class="error-message" id="photoError"></span>
-                </div>
-                
-                <div class="modal-buttons">
-                    <button class="modal-btn cancel-btn">Cancel</button>
-                    <button class="modal-btn submit-btn">Submit Request</button>
-                </div>
-            </div>
-        `;
+      <div class="modal-content">
+        <h2 class="modal-title">Request a Dish</h2>
+        
+        <div class="form-group">
+          <input type="text" class="modal-input" id="dishName" placeholder="Dish Name *" />
+          <span class="error-message" id="dishNameError"></span>
+        </div>
+        
+        <div class="form-group">
+          <textarea class="modal-textarea" id="dishDescription" placeholder="Description *" rows="4"></textarea>
+          <span class="error-message" id="descriptionError"></span>
+        </div>
+        
+        <div class="form-group">
+          <label class="photo-upload-label">
+            <input type="file" class="photo-input" id="dishPhoto" accept="image/*" />
+            <span class="upload-text">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 4V16M4 10H16" stroke="#1AC073" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Upload Photo (Optional, Max 2MB)
+            </span>
+          </label>
+          <span class="file-name" id="fileName"></span>
+          <span class="error-message" id="photoError"></span>
+        </div>
+        
+        <div class="modal-buttons">
+          <button class="modal-btn cancel-btn">Cancel</button>
+          <button class="modal-btn submit-btn">Submit Request</button>
+        </div>
+      </div>
+    `;
 
         body.appendChild(modal);
         body.style.overflow = 'hidden';
@@ -181,7 +181,6 @@ if (requestDishBtn) {
         const dishDescriptionInput = modal.querySelector('#dishDescription');
         const photoInput = modal.querySelector('#dishPhoto');
         const fileNameDisplay = modal.querySelector('#fileName');
-
 
         photoInput.addEventListener('change', function (e) {
             const file = e.target.files[0];
@@ -200,7 +199,6 @@ if (requestDishBtn) {
                 }
             }
         });
-
 
         dishNameInput.addEventListener('input', function () {
             modal.querySelector('#dishNameError').textContent = '';
@@ -225,12 +223,10 @@ if (requestDishBtn) {
             const dishNameError = modal.querySelector('#dishNameError');
             const descriptionError = modal.querySelector('#descriptionError');
 
-
             dishNameError.textContent = '';
             descriptionError.textContent = '';
             dishNameInput.classList.remove('input-error');
             dishDescriptionInput.classList.remove('input-error');
-
 
             if (!dishNameInput.value.trim()) {
                 dishNameError.textContent = 'Dish name is required';
@@ -241,7 +237,6 @@ if (requestDishBtn) {
                 dishNameInput.classList.add('input-error');
                 isValid = false;
             }
-
 
             if (!dishDescriptionInput.value.trim()) {
                 descriptionError.textContent = 'Description is required';
@@ -260,13 +255,11 @@ if (requestDishBtn) {
 
         submitBtn.addEventListener('click', function () {
             if (validateForm()) {
-
                 console.log('Form submitted:', {
                     dishName: dishNameInput.value,
                     description: dishDescriptionInput.value,
                     photo: photoInput.files[0] || null
                 });
-
 
                 alert('Request submitted successfully!');
                 closeModal();
@@ -286,3 +279,25 @@ window.addEventListener('resize', () => {
         updateCarousel(false);
     }
 });
+
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navMenu = document.querySelector('.nav-menu');
+const navCloseBtn = document.querySelector('.nav-close-btn');
+
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    if (navCloseBtn) {
+        navCloseBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    }
+
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+}

@@ -26,31 +26,47 @@
             <nav>
                 <div class="logo">JTGeats</div>
                 <ul class="nav-menu">
+                    <li class="mobile-close-container">
+                        <button class="icon-btn nav-close-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </li>
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#menu" class="nav-link">Menu</a></li>
                     <li><a href="#blog" class="nav-link">Blog</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="header-icons">
-                    <button class="icon-btn search-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <circle cx="9" cy="9" r="7" stroke="white" stroke-width="2" />
-                            <path d="M14 14L18 18" stroke="white" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </button>
-                    <button class="icon-btn cart-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path
-                                d="M3 7C3 6.44772 3.44772 6 4 6H16C16.5523 6 17 6.44772 17 7V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V7Z"
-                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M7 9V5C7 3.34315 8.34315 2 10 2C11.6569 2 13 3.34315 13 5V9" stroke="white"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <circle cx="15" cy="5" r="2.5" fill="#FFC107" />
-                        </svg>
-                    </button>
-                </div>
-            </nav>
+                <button class="icon-btn mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <button class="icon-btn search-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="7" stroke="white" stroke-width="2" />
+                        <path d="M14 14L18 18" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <button class="icon-btn cart-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                            d="M3 7C3 6.44772 3.44772 6 4 6H16C16.5523 6 17 6.44772 17 7V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V7Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7 9V5C7 3.34315 8.34315 2 10 2C11.6569 2 13 3.34315 13 5V9" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="15" cy="5" r="2.5" fill="#FFC107" />
+                    </svg>
+                </button>
+        </div>
+        </nav>
         </div>
     </header>
 
@@ -702,8 +718,8 @@
 
     <script>
         const popularSwiper = new Swiper(".popularSwiper", {
-            slidesPerView: 3,
-            spaceBetween: 30,
+            slidesPerView: 1,
+            spaceBetween: 20,
             centeredSlides: true,
             loop: true,
             loopAdditionalSlides: 3,
@@ -712,6 +728,12 @@
                 prevEl: ".swiper-button-prev",
             },
             speed: 500,
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
         });
     </script>
 
