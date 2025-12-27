@@ -771,7 +771,7 @@ footer {
 }
 
 
-/* Mobile Menu Button - Hidden on Desktop */
+
 .mobile-menu-btn {
     display: none;
 }
@@ -825,15 +825,15 @@ footer {
         z-index: 101;
     }
 
-    /* Mobile Navigation Drawer */
+ 
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%;
         left: auto;
-        /* Reset desktop left */
+
         transform: none;
-        /* Reset desktop transform */
+
         width: 300px;
         height: 100vh;
         background-color: #1AC073;
@@ -864,7 +864,7 @@ footer {
         font-size: 20px;
     }
 
-    /* Hide close button on desktop */
+   
     @media (min-width: 769px) {
         .mobile-close-container {
             display: none;
@@ -906,7 +906,7 @@ footer {
         padding: 0 24px;
     }
 
-    /* Carousel Adjustment for Mobile */
+  
     .popular-slider-wrapper .swiper-button-prev,
     .popular-slider-wrapper .swiper-button-next {
         display: flex;
